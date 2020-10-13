@@ -11,3 +11,5 @@ verb = Category.create(name: "verb"
 food =Category.create( name: "food")
 conversation =Category.create(name: "conversation")
 
+Topic.create(title: "verb", content: "abrir-to open, ayudar-to help", category_id: verb.id)
+

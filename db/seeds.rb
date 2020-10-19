@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+Category.destroy_all
+Topic.destroy_all
+
 verb = Category.create(name: "verb")
 food = Category.create( name: "food")
 conversation = Category.create(name: "conversation")

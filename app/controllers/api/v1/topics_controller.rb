@@ -7,10 +7,11 @@ class Api::V1::TopicsController < ApplicationController
 
     def create
        topic = Topic.new(topic_params)
-       if topic.save
-        render json: topic, status: :accepted
-       else
-        render json: {errors: topic.errors.full_messages}, status: :unprocessible_entity
+        if topic.save
+            render json: TopicSerializer.new(topic), status: :accepted
+        else
+            render json: {errors: topic.errors.full_messages}, status: :unprocessible_entity
+        end
     end
 
     private
@@ -19,6 +20,6 @@ class Api::V1::TopicsController < ApplicationController
         params.require(:topic).permit(:title,:content, :category_id)
 
     end
-end
+
 
 end

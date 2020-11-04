@@ -14,6 +14,24 @@ class Api::V1::TopicsController < ApplicationController
         end
     end
 
+    def destroy
+    
+        topic = Topic.find_by(id: params[:id])
+        topic.destroy
+        # head :no_content
+    end
+    def edit
+        topic = Topic.find(params[:id])
+      end
+    
+      def update
+        @topic = Topic.find(params[:id])
+    
+        if topic.update(topic_params)
+
+        end
+      end
+
     private
 
     def topic_params

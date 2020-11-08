@@ -25,10 +25,11 @@ class Api::V1::TopicsController < ApplicationController
       end
     
       def update
-        @topic = Topic.find(params[:id])
-    
-        if topic.update(topic_params)
-
+        topic.update(topic_params)
+        if topic.save
+          render json: topic, status: :accepted
+        else
+          render json: { errors: topic.errors.full_messages }, status: :unprocessible_entity
         end
       end
 

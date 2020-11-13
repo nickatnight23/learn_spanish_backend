@@ -7,6 +7,7 @@ class Api::V1::TopicsController < ApplicationController
 
     def create
        topic = Topic.new(topic_params)
+       
         if topic.save
             render json: TopicSerializer.new(topic), status: :accepted
         else
